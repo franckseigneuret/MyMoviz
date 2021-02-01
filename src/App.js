@@ -1,9 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Nav, NavItem, NavLink } from 'reactstrap';
-
 
 import Movie from './components/Movie'
+import NavBar from './components/NavBar'
 
 const moviesDatas = [
   { name: 'badboy3', desc: '', img: '/img/badboy3.jpg', note: '4', vote: '29' },
@@ -30,15 +29,7 @@ const App = (props) => {
   return (
     <div className="container">
       <div className="row">
-        <img src="./img/logo.png" alt="" />
-        <Nav>
-          <NavItem>
-            <NavLink href="#">Last release</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink href="#">11 films</NavLink>
-          </NavItem>
-        </Nav>
+        <NavBar />
       </div>
       <div className="row">
 
