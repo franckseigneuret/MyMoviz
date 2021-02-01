@@ -1,4 +1,5 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   Nav, NavItem, NavLink,
   Card, CardImg, CardText, CardBody,
@@ -20,19 +21,19 @@ const App = (props) => {
         </Nav>
       </div>
       <div class="row">
-        <div class="col-4">
+        <div class="col-12 col-lg-6 col-xl-4">
           <Card>
             <CardImg top width="100%" src="/img/badboy3.jpg" alt="Card image cap" />
             <CardBody>
+              <p>Like</p>
+              <p>Nombre de vue</p>
+              <p>Mon avis <Button>+1</Button> <Button>-1</Button></p>
+              <p>Moyenne</p>
               <CardTitle tag="h5">Card title</CardTitle>
-              <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle>
               <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-              <Button>Button</Button>
             </CardBody>
           </Card>
         </div>
-        <div class="col-4"></div>
-        <div class="col-4"></div>
       </div>
     </div>
   );
