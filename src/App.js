@@ -5,6 +5,9 @@ import {
   Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button
 } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart, faStar, faVideo } from '@fortawesome/free-solid-svg-icons'
+
 
 const App = (props) => {
   return (
@@ -25,10 +28,10 @@ const App = (props) => {
           <Card>
             <CardImg top width="100%" src="/img/badboy3.jpg" alt="Card image cap" />
             <CardBody>
-              <p>Like</p>
-              <p>Nombre de vue</p>
-              <p>Mon avis <Button>+1</Button> <Button>-1</Button></p>
-              <p>Moyenne</p>
+              <p>Like <FontAwesomeIcon icon={faHeart} /></p>
+              <p>Nombre de vue <FontAwesomeIcon icon={faVideo} /></p>
+              <p>Mon avis <FontAwesomeIcon icon={faStar} /> <Button>+1</Button> <Button>-1</Button></p>
+              <p>Moyenne <FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /></p>
               <CardTitle tag="h5">Card title</CardTitle>
               <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
             </CardBody>
