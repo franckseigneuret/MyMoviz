@@ -1,19 +1,24 @@
 import React from 'react';
-import { Nav, NavItem, NavLink } from 'reactstrap';
+import { Nav, NavItem, Button, UncontrolledPopover, PopoverBody } from 'reactstrap';
 
 const NavBar = (props) => {
   return (
-    <div>
-      <img src="./img/logo.png" alt="" />
-        <Nav>
-          <NavItem>
-            <NavLink href="#">Last release</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink href="#">11 films</NavLink>
-          </NavItem>
-        </Nav>
-    </div>
+    <Nav className="navBar">
+      <NavItem>
+        <img src="./img/logo.png" alt="" />
+      </NavItem>
+      <NavItem>
+        Last release
+      </NavItem>
+      <NavItem>
+        <Button id="PopoverClick" type="button">
+          11 films
+        </Button>
+        <UncontrolledPopover trigger="click" placement="bottom" target="PopoverClick">
+          <PopoverBody>Nice :)</PopoverBody>
+        </UncontrolledPopover>
+      </NavItem>
+    </Nav>
   )
 }
 

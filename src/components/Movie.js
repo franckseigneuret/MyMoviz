@@ -5,12 +5,12 @@ import { faHeart, faStar, faVideo } from '@fortawesome/free-solid-svg-icons'
 
 const Movie = (props) => {
   return (
-    <div class="col-12 col-lg-6 col-xl-4">
+    <div className="col-12 col-lg-6 col-xl-4 movie-card">
       <Card>
         <CardImg top width="100%" src={props.movieImg} alt="Card image cap" />
         <CardBody>
           <p>
-            Like <FontAwesomeIcon icon={faHeart} />
+            Like <FontAwesomeIcon icon={faHeart} style={{cursor :'pointer'}} />
           </p>
           <p>
             Nombre de vue <FontAwesomeIcon icon={faVideo} /> {props.globalCountRating}

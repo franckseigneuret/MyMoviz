@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Movie from './components/Movie'
@@ -28,7 +29,7 @@ const App = (props) => {
 
   return (
     <div className="container">
-      <div className="row">
+      <div className="row py-3">
         <NavBar />
       </div>
       <div className="row">
