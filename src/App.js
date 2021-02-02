@@ -7,19 +7,20 @@ import NavBar from './components/NavBar'
 import moviesDatas from './moviesDatas'
 
 
+
 const App = (props) => {
 
   const moviesComponent = moviesDatas.map((movie, i) => {
     return <Movie key={i} datas={movie} />
   })
 
-  return ( 
+  return (
     <Container>
       <Row className="py-3">
         <NavBar />
       </Row>
       <Row>
-        { moviesComponent }
+        {moviesComponent}
       </Row>
     </Container>
   );
