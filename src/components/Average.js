@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 const Average = ({ note }) => {
-  console.log(note)
+  // console.log(note)
   const stars = []
   for (let i = 0; i < 10; i++) {
     let style = 'yellow'

@@ -50,7 +50,9 @@ const Movie = (props) => {
   }
 
   const averageCalcul = () => {
-    return (note * vote + myRatingMovie) / nbVote
+    const realNote = (note * vote + myRatingMovie) / nbVote
+    const averageNote = Math.round(realNote)
+    return averageNote
   }
 
   return (
@@ -76,7 +78,7 @@ const Movie = (props) => {
             </ButtonGroup>
           </div>
           <div>
-            Moyenne <Average note={averageCalcul()} /> ({nbVote} votes)
+            Moyenne <Average note={averageCalcul()} /> ({note} - {nbVote} votes)
           </div>
           <CardTitle tag="h5">{name}</CardTitle>
           <CardText>{desc}</CardText>
