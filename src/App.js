@@ -9,17 +9,11 @@ import moviesDatas from './moviesDatas'
 
 const App = (props) => {
 
-  const moviesComponent = moviesDatas.map((movie) => {
-    return <Movie
-      movieName={movie.name}
-      movieDesc={movie.desc}
-      movieImg={movie.img}
-      globalRating={movie.note}
-      globalCountRating={movie.vote}
-    />
+  const moviesComponent = moviesDatas.map((movie, i) => {
+    return <Movie key={i} datas={movie} />
   })
 
-  return (
+  return ( 
     <Container>
       <Row className="py-3">
         <NavBar />

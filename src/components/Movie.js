@@ -4,25 +4,34 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faStar, faVideo } from '@fortawesome/free-solid-svg-icons'
 
 const Movie = (props) => {
+
+  const {
+    name,
+    desc,
+    img,
+    note,
+    vote,
+  } = props.datas
+
   return (
     <div className="col-12 col-lg-6 col-xl-4 movie-card">
       <Card>
-        <CardImg top width="100%" src={props.movieImg} alt="Card image cap" />
+        <CardImg top width="100%" src={img} alt="Card image cap" />
         <CardBody>
           <p>
             Like <FontAwesomeIcon icon={faHeart} style={{cursor :'pointer'}} />
           </p>
           <p>
-            Nombre de vue <FontAwesomeIcon icon={faVideo} /> {props.globalCountRating}
+            Nombre de vue <FontAwesomeIcon icon={faVideo} /> {vote}
           </p>
           <p>
             Mon avis <FontAwesomeIcon icon={faStar} /> <Button>+1</Button> <Button>-1</Button>
           </p>
           <p>
-            Moyenne <FontAwesomeIcon icon={faStar} /> {props.globalRating}
+            Moyenne <FontAwesomeIcon icon={faStar} /> {note}
           </p>
-          <CardTitle tag="h5">{props.movieName}</CardTitle>
-          <CardText>{props.movieDesc}</CardText>
+          <CardTitle tag="h5">{name}</CardTitle>
+          <CardText>{desc}</CardText>
         </CardBody>
       </Card>
     </div>
