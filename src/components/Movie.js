@@ -29,14 +29,14 @@ const Movie = (props) => {
     setCountWatchMovie(countWatchMovie + toggle)
   }
 
-  const handleAdviceClick = (n) => {
-    if (n > 0 && myRatingMovie < 10) {
-      setMyRatingMovie(myRatingMovie + n)
+  const setMyRating = (rating) => {
+    if (rating < 0) {
+      rating = 0
     }
-    if (n < 0 && myRatingMovie > 0) {
-      setMyRatingMovie(myRatingMovie + n)
+    if (rating > 10) {
+      rating = 10
     }
-    console.log(myRatingMovie)
+    setMyRatingMovie(rating)
   }
 
   return (
@@ -53,11 +53,12 @@ const Movie = (props) => {
           </div>
           <div>
             Mon avis
+
             <MyAdvice myRatingMovie={myRatingMovie} />
-            
+
             <ButtonGroup size="sm">
-              <Button onClick={() => handleAdviceClick(-1)}>-1</Button>
-              <Button onClick={() => handleAdviceClick(1)}>+1</Button>
+              <Button onClick={() => setMyRating(myRatingMovie - 1)}>-</Button>
+              <Button onClick={() => setMyRating(myRatingMovie + 1)}>+</Button>
             </ButtonGroup>
           </div>
           <div>
