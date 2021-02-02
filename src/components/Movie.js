@@ -55,6 +55,11 @@ const Movie = (props) => {
     return averageNote
   }
 
+  const starClick = (e) => {
+    // console.log(e)
+    setMyRating(e)
+  }
+
   return (
     <div className="col-12 col-lg-6 col-xl-4 movie-card">
       <Card>
@@ -63,14 +68,15 @@ const Movie = (props) => {
           <div>
             Like <FontAwesomeIcon icon={faHeart} className={likeClass} style={{ cursor: 'pointer' }} onClick={() => setLikeMovie(!likeMovie)} />
           </div>
+
           <div>
             Nombre de vue <FontAwesomeIcon icon={faVideo}
               className={watchClass} onClick={() => handleWatchClick()} /> {countWatchMovie}
           </div>
+
           <div>
             Mon avis
-
-            <MyAdvice myRatingMovie={myRatingMovie} />
+            <MyAdvice myRatingMovie={myRatingMovie} starClick={starClick} />
 
             <ButtonGroup size="sm">
               <Button onClick={() => setMyRating(myRatingMovie - 1)}>-</Button>
