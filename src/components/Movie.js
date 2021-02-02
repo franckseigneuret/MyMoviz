@@ -13,9 +13,13 @@ const Movie = (props) => {
   } = props.datas
 
   const [likeMovie, setLikeMovie] = useState(false)
+  const [watchMovie, setWatchMovie] = useState(vote)
 
   const handleClickLike = () => {
     setLikeMovie(!likeMovie)
+  }
+  const handleClickWatch = () => {
+    setWatchMovie(Number(watchMovie) + 1)
   }
 
   const likeClass = likeMovie ? 'like' : ''
@@ -26,10 +30,10 @@ const Movie = (props) => {
         <CardImg top width="100%" src={img} alt="Card image cap" />
         <CardBody>
           <p>
-            Like <FontAwesomeIcon icon={faHeart} className={likeClass} style={{cursor :'pointer'}} onClick={()=>handleClickLike()} />
+            Like <FontAwesomeIcon icon={faHeart} className={likeClass} style={{ cursor: 'pointer' }} onClick={() => handleClickLike()} />
           </p>
           <p>
-            Nombre de vue <FontAwesomeIcon icon={faVideo} /> {vote}
+            Nombre de vue <FontAwesomeIcon icon={faVideo} onClick={() => handleClickWatch()} /> {watchMovie}
           </p>
           <p>
             Mon avis <FontAwesomeIcon icon={faStar} /> <Button>+1</Button> <Button>-1</Button>
