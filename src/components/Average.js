@@ -2,11 +2,12 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 
-const MyAdvice = ({ myRatingMovie }) => {
+const Average = ({ note }) => {
+  console.log(note)
   const stars = []
   for (let i = 0; i < 10; i++) {
     let style = 'yellow'
-    if (i >= myRatingMovie) {
+    if (i >= note) {
       style = ''
     }
 
@@ -16,4 +17,4 @@ const MyAdvice = ({ myRatingMovie }) => {
   return stars
 }
 
-export default MyAdvice
+export default Average

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle, ButtonGroup, Button } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart, faStar, faVideo } from '@fortawesome/free-solid-svg-icons'
+import { faHeart, faVideo } from '@fortawesome/free-solid-svg-icons'
 
 import MyAdvice from './MyAdvice'
+import Average from './Average'
 
 const Movie = (props) => {
   const {
@@ -11,14 +12,16 @@ const Movie = (props) => {
     desc,
     img,
     note,
-    // vote,
+    vote,
     vue,
   } = props.datas
 
+  let haveVote = false
   const [likeMovie, setLikeMovie] = useState(false)
   const [watchMovie, setWatchMovie] = useState(false)
   const [countWatchMovie, setCountWatchMovie] = useState(vue)
   const [myRatingMovie, setMyRatingMovie] = useState(0)
+  const [nbVote, setNbVote] = useState(vote)
 
   const likeClass = likeMovie ? 'like' : ''
   const watchClass = watchMovie ? 'have-seen' : ''
@@ -37,6 +40,17 @@ const Movie = (props) => {
       rating = 10
     }
     setMyRatingMovie(rating)
+
+    haveVote = rating > 0 ? true : false
+    if(haveVote && nbVote === vote) {
+      setNbVote(vote + 1)
+    } else if(!haveVote) {
+      setNbVote(vote)
+    }
+  }
+
+  const averageCalcul = () => {
+    return (note * vote + myRatingMovie) / nbVote
   }
 
   return (
@@ -62,7 +76,7 @@ const Movie = (props) => {
             </ButtonGroup>
           </div>
           <div>
-            Moyenne <FontAwesomeIcon icon={faStar} /> {note}
+            Moyenne <Average note={averageCalcul()} /> ({nbVote} votes)
           </div>
           <CardTitle tag="h5">{name}</CardTitle>
           <CardText>{desc}</CardText>
