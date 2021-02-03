@@ -63,9 +63,9 @@ const Movie = (props) => {
     setMyRating(e)
   }
 
-  const handleClickAddMovie = (like) => {
+  const handleClickAddMovie = (like, name) => {
     setLikeMovie(like)
-    handleCountMovie(like)
+    handleCountMovie(like, name)
   }
 
   return (
@@ -78,7 +78,7 @@ const Movie = (props) => {
             <FontAwesomeIcon icon={faHeart}
               className={likeClass}
               style={{ cursor: 'pointer' }}
-              onClick={() => handleClickAddMovie(!likeMovie)} />
+              onClick={() => handleClickAddMovie(!likeMovie, name)} />
           </div>
 
           <div>

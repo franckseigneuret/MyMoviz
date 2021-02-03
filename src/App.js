@@ -8,12 +8,14 @@ import NavBar from './components/NavBar'
 import moviesDatas from './moviesDatas'
 
 const App = (props) => {
+  const [wishlist, setWishList] = useState([]) // wishList = tableau de noms de film
 
-  const [moviesCount, setMoviesCount] = useState(12)
-
-  const checkMovieLiked = (isLike) => {
-    const toggle = isLike ? 1 : -1
-    setMoviesCount(moviesCount + toggle)
+  const checkMovieLiked = (isLike, name) => {
+    if (isLike && wishlist.indexOf(name) < 0) { // si on LIKE un film et que wishList ne le contient pas 
+      setWishList([...wishlist, name])          // on AJOUTE ce film dans la wishList
+    } else if (!isLike && wishlist.indexOf(name) > 0) {   // si on UN-like un film et que wishList le contient 
+      setWishList(wishlist.filter(item => item !== name)) // on SUPPRIME ce film dans la wishList
+    }
   }
 
   const moviesComponent = moviesDatas.map((movie, i) => {
@@ -23,7 +25,7 @@ const App = (props) => {
   return (
     <Container>
       <Row className="py-3">
-        <NavBar moviesCount={moviesCount} />
+        <NavBar moviesCount={wishlist.length} />
       </Row>
       <Row>
         {moviesComponent}
