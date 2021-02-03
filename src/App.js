@@ -13,9 +13,12 @@ const App = (props) => {
   const checkMovieLiked = (isLike, name) => {
     if (isLike && wishlist.indexOf(name) < 0) { // si on LIKE un film et que wishList ne le contient pas 
       setWishList([...wishlist, name])          // on AJOUTE ce film dans la wishList
-    } else if (!isLike && wishlist.indexOf(name) > 0) {   // si on UN-like un film et que wishList le contient 
+    } else if (!isLike && wishlist.indexOf(name) >= 0) {   // si on UN-like un film et que wishList le contient 
       setWishList(wishlist.filter(item => item !== name)) // on SUPPRIME ce film dans la wishList
     }
+    //  else {
+    //   setWishList(wishlist)
+    // }
   }
 
   const moviesComponent = moviesDatas.map((movie, i) => {
@@ -25,7 +28,7 @@ const App = (props) => {
   return (
     <Container>
       <Row className="py-3">
-        <NavBar moviesCount={wishlist.length} />
+        <NavBar moviesCount={wishlist.length} wishlist={wishlist} />
       </Row>
       <Row>
         {moviesComponent}
