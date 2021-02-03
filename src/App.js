@@ -21,6 +21,10 @@ const App = (props) => {
     // }
   }
 
+  const handleClickDeleteMovie = (name) => {
+    setWishList(wishlist.filter(item => item !== name)) // on SUPPRIME ce film dans la wishList
+  }
+
   const moviesComponent = moviesDatas.map((movie, i) => {
     return <Movie key={i} datas={movie} handleCountMovie={checkMovieLiked} />
   })
@@ -28,7 +32,7 @@ const App = (props) => {
   return (
     <Container>
       <Row className="py-3">
-        <NavBar moviesCount={wishlist.length} wishlist={wishlist} />
+        <NavBar moviesCount={wishlist.length} wishlist={wishlist} handleClickDeleteMovie={handleClickDeleteMovie} />
       </Row>
       <Row>
         {moviesComponent}

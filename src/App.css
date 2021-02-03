@@ -20,3 +20,10 @@
 .yellow {
   color: #f1c40f;
 }
+
+.wishListItems div {
+  padding: 10px;
+}
+.wishListItems span {
+  padding-right: 10px;
+}
