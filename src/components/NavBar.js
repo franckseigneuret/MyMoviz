@@ -12,7 +12,7 @@ const NavBar = (props) => {
       </NavItem>
       <NavItem>
         <Button id="PopoverClick" type="button">
-          11 films
+          {props.moviesCount} films
         </Button>
         <UncontrolledPopover trigger="click" placement="bottom" target="PopoverClick">
           <PopoverBody>Nice :)</PopoverBody>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, CardImg, CardText, CardBody, CardTitle, ButtonGroup, Button } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle, ButtonGroup, Button, Badge } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faVideo } from '@fortawesome/free-solid-svg-icons'
 
@@ -15,6 +15,9 @@ const Movie = (props) => {
     vote,
     vue,
   } = props.datas
+  const {
+    handleCountMovie,
+  } = props
 
   let haveVote = false
   const [likeMovie, setLikeMovie] = useState(false)
@@ -60,18 +63,32 @@ const Movie = (props) => {
     setMyRating(e)
   }
 
+  const handleClickAddMovie = (like) => {
+    setLikeMovie(like)
+    handleCountMovie(like)
+  }
+
   return (
     <div className="col-12 col-lg-6 col-xl-4 movie-card">
       <Card>
         <CardImg top width="100%" src={img} alt="Card image cap" />
         <CardBody>
           <div>
-            Like <FontAwesomeIcon icon={faHeart} className={likeClass} style={{ cursor: 'pointer' }} onClick={() => setLikeMovie(!likeMovie)} />
+            Like{' '}
+            <FontAwesomeIcon icon={faHeart}
+              className={likeClass}
+              style={{ cursor: 'pointer' }}
+              onClick={() => handleClickAddMovie(!likeMovie)} />
           </div>
 
           <div>
-            Nombre de vue <FontAwesomeIcon icon={faVideo}
-              className={watchClass} onClick={() => handleWatchClick()} /> {countWatchMovie}
+            Nombre de vue
+            {' '}
+            <FontAwesomeIcon icon={faVideo}
+              className={watchClass}
+              onClick={() => handleWatchClick()} />
+            {' '}
+            <Badge>{countWatchMovie}</Badge>
           </div>
 
           <div>
