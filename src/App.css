@@ -21,9 +21,23 @@
   color: #f1c40f;
 }
 
-.wishListItems div {
+.wishListItems {
   padding: 10px;
+}
+.wishListItems div {
+  margin-bottom: 10px;
 }
 .wishListItems span {
   padding-right: 10px;
+}
+.trash {
+  cursor: pointer;
+}
+.trash:hover {
+  color:#2c3436;
+}
+
+.media img {
+  max-width: 100px;
+  max-height: 50px;
 }

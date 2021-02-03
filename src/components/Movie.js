@@ -73,7 +73,7 @@ const Movie = (props) => {
             <FontAwesomeIcon icon={faHeart}
               className={likeClass}
               style={{ cursor: 'pointer' }}
-              onClick={() => handleCountMovie(!isWished, name)} />
+              onClick={() => handleCountMovie(!isWished, name, img)} />
           </div>
 
           <div>
@@ -96,7 +96,7 @@ const Movie = (props) => {
             </ButtonGroup>
           </div>
           <div>
-            Moyenne <Average note={averageCalcul()} /> ({note} - {nbVote} votes)
+            Moyenne <Average note={averageCalcul()} /> ({nbVote} votes)
           </div>
           <CardTitle tag="h5">{name}</CardTitle>
           <CardText>{desc}</CardText>

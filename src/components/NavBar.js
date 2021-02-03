@@ -1,19 +1,24 @@
 import React from 'react';
-import { Nav, NavItem, Button, UncontrolledPopover, PopoverBody, PopoverHeader } from 'reactstrap';
+import { Nav, NavItem, Button, UncontrolledPopover, PopoverBody, PopoverHeader, Media } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
-const WishlistMovie = ({ name, handleClickDeleteMovie }) => (
-  <div>
-    <span>{name}</span>
-    <FontAwesomeIcon icon={faTrash} onClick={() => handleClickDeleteMovie(name)} />
-  </div>
+const WishlistMovie = ({ item, handleClickDeleteMovie }) => (
+  <Media>
+    <Media left className="mr-3">
+      <Media object src={item.img} alt={item.name} />
+    </Media>
+    <Media body className="text-right">
+      <span>{item.name}</span>
+      <FontAwesomeIcon icon={faTrash} className="trash" onClick={() => handleClickDeleteMovie(item.name)} />
+    </Media>
+  </Media>
 )
 
 const NavBar = ({ moviesCount, wishlist, handleClickDeleteMovie }) => {
 
   const wishlistComponent = wishlist.map((item, i) => {
-    return <WishlistMovie key={i} name={item} handleClickDeleteMovie={handleClickDeleteMovie} />
+    return <WishlistMovie key={i} item={item} handleClickDeleteMovie={handleClickDeleteMovie} />
   })
 
   return (
@@ -29,10 +34,10 @@ const NavBar = ({ moviesCount, wishlist, handleClickDeleteMovie }) => {
           {moviesCount} film{moviesCount > 1 ? 's' : ''}
         </Button>
         <UncontrolledPopover trigger="click" placement="bottom" target="PopoverClick">
-          <PopoverHeader>Wishlist</PopoverHeader>
+          <PopoverHeader>ma Wishlist</PopoverHeader>
           <PopoverBody className="wishListItems">
             {
-              wishlistComponent.length > 0 ? wishlistComponent : <div>nada :)</div>
+              wishlistComponent.length > 0 ? wishlistComponent : <div>aucun film 🙁</div>
             }
           </PopoverBody>
         </UncontrolledPopover>
