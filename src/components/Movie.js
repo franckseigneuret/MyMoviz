@@ -15,18 +15,19 @@ const Movie = (props) => {
     vote,
     vue,
   } = props.datas
+
   const {
     handleCountMovie,
+    isWished,
   } = props
 
   let haveVote = false
-  const [likeMovie, setLikeMovie] = useState(false)
   const [watchMovie, setWatchMovie] = useState(false)
   const [countWatchMovie, setCountWatchMovie] = useState(vue)
   const [myRatingMovie, setMyRatingMovie] = useState(0)
   const [nbVote, setNbVote] = useState(vote)
 
-  const likeClass = likeMovie ? 'like' : ''
+  const likeClass = isWished ? 'like' : ''
   const watchClass = watchMovie ? 'have-seen' : ''
 
   const handleWatchClick = () => {
@@ -58,14 +59,8 @@ const Movie = (props) => {
     return averageNote
   }
 
-  const starClick = (e) => {
-    // console.log(e)
-    setMyRating(e)
-  }
-
-  const handleClickAddMovie = (like, name) => {
-    setLikeMovie(like)
-    handleCountMovie(like, name)
+  const starClick = (item) => {
+    setMyRating(item)
   }
 
   return (
@@ -78,7 +73,7 @@ const Movie = (props) => {
             <FontAwesomeIcon icon={faHeart}
               className={likeClass}
               style={{ cursor: 'pointer' }}
-              onClick={() => handleClickAddMovie(!likeMovie, name)} />
+              onClick={() => handleCountMovie(!isWished, name)} />
           </div>
 
           <div>
